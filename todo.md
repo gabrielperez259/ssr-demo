@@ -1,16 +1,16 @@
 Etapa 1 — Estrutura
 - [x] Criar o projeto Angular 22 com SSR habilitado
 - [x] Definir o modelo de dados e criar um conjunto pequeno de lugares mockados
-- [ ] Criar o serviço responsável por fornecer os lugares
-- [ ] Configurar as rotas principais
+- [x] Criar o serviço responsável por fornecer os lugares
+- [x] Configurar as rotas principais
 
 Etapa 2 — Páginas públicas e SEO
-- [ ] Criar a página inicial com lugares em destaque
-- [ ] Criar a listagem de lugares
-- [ ] Criar a página de detalhes usando um slug na URL
-- [ ] Configurar título e meta description específicos para cada página
-- [ ] Adicionar metadados Open Graph para compartilhamento
-- [ ] Implementar tratamento de lugar inexistente com resposta HTTP 404 adequada
+- [x] Criar a página inicial com lugares em destaque
+- [x] Criar a listagem de lugares
+- [x] Criar a página de detalhes usando um slug na URL
+- [x] Configurar título e meta description específicos para cada página
+- [x] Adicionar metadados Open Graph para compartilhamento
+- [x] Implementar tratamento de lugar inexistente com resposta HTTP 404 adequada
 
 Etapa 3 — Renderização híbrida
 - [ ] Configurar as rotas públicas para SSR

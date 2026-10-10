@@ -1,1 +1,87 @@
-<p>place-detail works!</p>
+
+<main class="place-detail-page">
+  <a class="back-link" routerLink="/lugares">
+    <span aria-hidden="true">←</span>
+    Voltar para os lugares
+  </a>
+
+  @if (place; as place) {
+    <article class="place-detail">
+      <header class="place-header">
+        <span class="category">
+          {{ categoryLabels[place.category] }}
+        </span>
+
+        <h1>{{ place.name }}</h1>
+
+        <p class="location">
+          <span aria-hidden="true">📍</span>
+          {{ place.address }}, {{ place.city }} - {{ place.state }}
+        </p>
+      </header>
+
+      <img
+        class="place-image"
+        [src]="place.imageUrl"
+        [alt]="'Imagem de ' + place.name"
+      />
+
+      <div class="place-content">
+        <section class="description">
+          <h2>Sobre o lugar</h2>
+          <p>{{ place.description }}</p>
+        </section>
+
+        <section class="information">
+          <h2>Informações</h2>
+
+          <div class="information-item">
+            <span class="information-label">Endereço</span>
+            <p>{{ place.address }}, {{ place.city }} - {{ place.state }}</p>
+          </div>
+
+          <div class="information-item">
+            <span class="information-label">
+              Horário de funcionamento
+            </span>
+            <p>{{ place.openingHours }}</p>
+          </div>
+
+          <div class="information-item">
+            <span class="information-label">Faixa de preço</span>
+            <p>{{ priceLabels[place.priceLevel] }}</p>
+          </div>
+        </section>
+
+        @if (place.highlights.length > 0) {
+          <section class="highlights">
+            <h2>Destaques</h2>
+
+            <ul>
+              @for (highlight of place.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+              }
+            </ul>
+          </section>
+        }
+      </div>
+
+      <footer class="place-footer">
+        <a routerLink="/lugares">Explorar outros lugares</a>
+      </footer>
+    </article>
+  } @else {
+    <section class="not-found">
+      <span class="not-found-icon" aria-hidden="true">🔎</span>
+      <h1>Lugar não encontrado</h1>
+      <p>
+        Não encontramos um lugar com esse endereço.
+        Confira o link ou explore nosso catálogo.
+      </p>
+
+      <a class="primary-link" routerLink="/lugares">
+        Ver todos os lugares
+      </a>
+    </section>
+  }
+</main>

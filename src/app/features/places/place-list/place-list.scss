@@ -1,0 +1,255 @@
+:host {
+  display: block;
+}
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  color: #315d3d;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 160ms ease;
+
+  &:hover {
+    color: #1d3826;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid #587a60;
+    outline-offset: 4px;
+  }
+}
+.place-list-page {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+  padding-block: 48px 72px;
+}
+
+.page-header {
+  margin-bottom: 48px;
+
+  .eyebrow {
+    color: #587a60;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    margin: 14px 0;
+    color: #24332a;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    max-width: 620px;
+    margin: 0;
+    color: #68736b;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+}
+
+.catalog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 0;
+    color: #29392d;
+    font-size: 1.5rem;
+  }
+
+  .results-count {
+    color: #68736b;
+    font-size: 0.9rem;
+  }
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.filter-button {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid #dfe5dd;
+  border-radius: 999px;
+  background: #fff;
+  color: #435447;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+
+  &:hover {
+    border-color: #78947d;
+  }
+
+  &.active {
+    border-color: #294d35;
+    background: #294d35;
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #a6c9ad;
+    outline-offset: 3px;
+  }
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.place-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e6e9e5;
+  border-radius: 16px;
+  background: #fff;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgb(31 50 35 / 9%);
+  }
+}
+
+.place-image-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: #edf0eb;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 250ms ease;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.place-category {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 7px 11px;
+  border-radius: 6px;
+  background: #fff;
+  color: #294d35;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.place-content {
+  padding: 20px;
+
+  .place-location {
+    color: #718074;
+    font-size: 0.8rem;
+  }
+
+  h3 {
+    margin: 8px 0 12px;
+    font-size: 1.15rem;
+    line-height: 1.4;
+
+    a {
+      color: #26372b;
+      text-decoration: none;
+
+      &:hover {
+        color: #47734f;
+      }
+    }
+  }
+}
+
+.place-description {
+  display: -webkit-box;
+  overflow: hidden;
+  min-height: 4.8em;
+  margin: 0 0 20px;
+  color: #68736b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.place-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #315d3d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 48px 20px;
+  border-radius: 12px;
+  background: #f5f5ef;
+  color: #68736b;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .places-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .place-list-page {
+    width: calc(100% - 28px);
+    padding-top: 32px;
+  }
+
+  .page-header {
+    margin-bottom: 32px;
+  }
+
+  .places-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .place-description {
+    min-height: 0;
+  }
+
+  .catalog-heading {
+    align-items: start;
+  }
+}

@@ -1,0 +1,273 @@
+
+:host {
+  display: block;
+}
+
+.home {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+  padding-block: 40px 64px;
+}
+
+.hero {
+  padding: 72px 56px;
+  border-radius: 24px;
+  background: #eaf2e8;
+  color: #243b2b;
+
+  .hero-eyebrow,
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    max-width: 650px;
+    margin: 20px 0 16px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+  }
+
+  p {
+    max-width: 540px;
+    margin: 0 0 28px;
+    color: #526756;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+}
+
+.hero-button,
+.banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 8px;
+  background: #294d35;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 160ms ease;
+
+  &:hover {
+    background: #1d3826;
+  }
+}
+
+.featured-section {
+  padding-top: 64px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+
+  h2 {
+    margin: 10px 0;
+    color: #24332a;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    letter-spacing: -0.035em;
+  }
+
+  p {
+    margin: 0;
+    color: #68736b;
+    line-height: 1.6;
+  }
+}
+
+.section-eyebrow {
+  color: #587a60;
+}
+
+.view-all {
+  flex-shrink: 0;
+  padding-bottom: 4px;
+  color: #294d35;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.place-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e6e9e5;
+  border-radius: 16px;
+  background: #fff;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgb(31 50 35 / 9%);
+  }
+}
+
+.place-image-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: #edf0eb;
+}
+
+.place-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 250ms ease;
+
+  .place-card:hover & {
+    transform: scale(1.04);
+  }
+}
+
+.place-category {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 7px 11px;
+  border-radius: 6px;
+  background: #fff;
+  color: #294d35;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.place-content {
+  padding: 20px;
+
+  .place-location {
+    color: #718074;
+    font-size: 0.8rem;
+  }
+
+  h3 {
+    margin: 8px 0 12px;
+    font-size: 1.2rem;
+    line-height: 1.4;
+
+    a {
+      color: #26372b;
+      text-decoration: none;
+
+      &:hover {
+        color: #47734f;
+      }
+    }
+  }
+}
+
+.place-description {
+  display: -webkit-box;
+  overflow: hidden;
+  min-height: 4.8em;
+  margin: 0 0 20px;
+  color: #68736b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.place-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #315d3d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.explore-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 64px;
+  padding: 36px;
+  border-radius: 16px;
+  background: #f5f5ef;
+
+  h2 {
+    margin: 0 0 8px;
+    color: #29392d;
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0;
+    color: #68736b;
+    line-height: 1.6;
+  }
+}
+
+.banner-button {
+  flex-shrink: 0;
+}
+
+@media (max-width: 850px) {
+  .places-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero {
+    padding: 52px 36px;
+  }
+}
+
+@media (max-width: 580px) {
+  .home {
+    width: min(100% - 28px, 1120px);
+    padding-top: 20px;
+  }
+
+  .hero {
+    padding: 40px 24px;
+    border-radius: 16px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .places-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .place-description {
+    min-height: 0;
+  }
+
+  .explore-banner {
+    align-items: start;
+    flex-direction: column;
+    padding: 28px 24px;
+  }
+}

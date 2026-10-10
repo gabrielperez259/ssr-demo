@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RouteSeoService } from './core/services/route-seo.service';
 
 @Component({
   imports: [RouterOutlet],
@@ -8,5 +9,9 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('ssr-demo');
+
+  private readonly routeSeo = inject(RouteSeoService);
+  constructor() {
+    this.routeSeo.initialize();
+  }
 }

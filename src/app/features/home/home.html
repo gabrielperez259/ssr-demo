@@ -1,1 +1,91 @@
-<p>home works!</p>
+
+<main class="home">
+  <section class="hero">
+    <span class="hero-eyebrow">DESCUBRA CAMPINAS</span>
+
+    <h1>Seu próximo rolê começa aqui.</h1>
+
+    <p>
+      Descubra parques, lugares históricos e cantinhos especiais
+      para conhecer em Campinas.
+    </p>
+
+    <a class="hero-button" routerLink="/lugares">
+      Explorar lugares
+      <span aria-hidden="true">→</span>
+    </a>
+  </section>
+
+  <section class="featured-section" aria-labelledby="featured-title">
+    <div class="section-heading">
+      <div>
+        <span class="section-eyebrow">SELEÇÃO ESPECIAL</span>
+        <h2 id="featured-title">Lugares em destaque</h2>
+        <p>Algumas sugestões para começar a explorar a cidade.</p>
+      </div>
+
+      <a class="view-all" routerLink="/lugares">
+        Ver todos <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="places-grid">
+      @for (place of featuredPlaces; track place.id) {
+        <article class="place-card">
+          <a
+            class="place-image-link"
+            [routerLink]="['/lugares', place.slug]"
+            [attr.aria-label]="'Conheça ' + place.name"
+          >
+            <img
+              class="place-image"
+              [src]="place.imageUrl"
+              [alt]="place.name"
+              width="600"
+              height="400"
+            />
+
+            <span class="place-category">
+              {{ categoryLabels[place.category] }}
+            </span>
+          </a>
+
+          <div class="place-content">
+            <span class="place-location">
+              {{ place.city }}, {{ place.state }}
+            </span>
+
+            <h3>
+              <a [routerLink]="['/lugares', place.slug]">
+                {{ place.name }}
+              </a>
+            </h3>
+
+            <p class="place-description">
+              {{ place.description }}
+            </p>
+
+            <a
+              class="place-link"
+              [routerLink]="['/lugares', place.slug]"
+            >
+              Conhecer lugar <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="explore-banner">
+    <div>
+      <h2>A cidade tem muito mais para oferecer.</h2>
+      <p>Encontre seu próximo destino em Campinas.</p>
+    </div>
+
+    <a class="banner-button" routerLink="/lugares">
+      Explorar catálogo
+    </a>
+  </section>
+</main>
+
